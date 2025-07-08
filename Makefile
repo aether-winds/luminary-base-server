@@ -6,6 +6,10 @@ clean:
 	@echo "Cleaning build directory..."
 	@rm -rf $(build_root)
 
-build: clean
+build: clean test
 	@echo "Building Luminary Base Server..."
 	@go build -o $(build_root)/luminary-base-server $(source_root)/luminary-base-server.go
+
+test:
+	@echo "Running unit tests..."
+	@go test -v ./...
