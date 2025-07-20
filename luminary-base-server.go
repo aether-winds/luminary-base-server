@@ -16,11 +16,11 @@ type Server = server.Server
 type HttpMethod = types.HttpMethod
 
 const (
-	HTTP_METHOD_GET    HttpMethod = HttpMethod(types.GET)
-	HTTP_METHOD_POST   HttpMethod = HttpMethod(types.POST)
-	HTTP_METHOD_PUT    HttpMethod = HttpMethod(types.PUT)
-	HTTP_METHOD_DELETE HttpMethod = HttpMethod(types.DELETE)
-	HTTP_METHOD_PATCH  HttpMethod = HttpMethod(types.PATCH)
+	HTTP_METHOD_GET    HttpMethod = types.GET
+	HTTP_METHOD_POST   HttpMethod = types.POST
+	HTTP_METHOD_PUT    HttpMethod = types.PUT
+	HTTP_METHOD_DELETE HttpMethod = types.DELETE
+	HTTP_METHOD_PATCH  HttpMethod = types.PATCH
 )
 
 func CreateMiddleware(handler func(ctx context.Context, w http.ResponseWriter, r *http.Request) error) Middleware {

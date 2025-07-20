@@ -21,6 +21,7 @@ type server struct {
 
 type Server interface {
 	RegisterMiddleware(m ...middleware.Middleware) error
+	RegisterRoutes(r ...route.Route) error
 	Start() error
 	Stop() error
 }
@@ -80,10 +81,6 @@ func (s *server) Start() error {
 	}
 
 	return http.ListenAndServe(fmt.Sprintf(":%d", s.port), s.mux)
-}
-
-func (s *server) Stop() error {
-	return nil
 }
 
 func CreateServer(port int) Server {
